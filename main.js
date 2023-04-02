@@ -10,18 +10,15 @@ const https = require('https');
 const emoji = require('node-emoji');
 const dotenv = require('dotenv');
 dotenv.config();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // Module ^^
 const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
 // Bot Utilities
 const ownerID = process.env.owner_id // MAG Accout
 function kumaStat(){
+  console.log(process.env.url_uptime)
   console.log("PUSH KUMA");
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', process.env.url_uptime);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.send('status=up&msg=OK&ping=60');
+  fetch(process.env.url_uptime);
 }
   
 function httpPingCustom(msg, link) { // Status Fonction with custom URL
