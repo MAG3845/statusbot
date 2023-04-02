@@ -8,16 +8,18 @@ Mail : contact@magcloud.eu
 const TelegramBot = require('node-telegram-bot-api');
 const https = require('https');
 const emoji = require('node-emoji');
+const dotenv = require('dotenv');
+dotenv.config();
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // Module ^^
-const token = '6282311523:AAECf8HPzWUxWRPfGQsCe-n-jszKLv8j2zU';
+const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
 // Bot Utilities
-const ownerID = 2115874946 // MAG Accout
+const ownerID = process.env.owner_id // MAG Accout
 function kumaStat(){
   console.log("PUSH KUMA");
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://status.magcloud.eu/api/push/Ch7FbnBLgt');
+  xhr.open('POST', process.env.url_uptime);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send('status=up&msg=OK&ping=60');
 }
