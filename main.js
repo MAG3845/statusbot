@@ -10,7 +10,6 @@ const https = require('https');
 const emoji = require('node-emoji');
 const dotenv = require('dotenv');
 dotenv.config();
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 // Module ^^
 const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
@@ -19,7 +18,7 @@ const ownerID = process.env.owner_id // MAG Accout
   
 
 
-function kumaStat(){
+function kumaStat(){  // Update Kuma Status 
     console.log("PUSH KUMA");
     fetch(process.env.url_uptime);
   }
@@ -94,7 +93,7 @@ setInterval(function() { // All 1h
     
   });
 
-  bot.onText(/\/custom ([^\s$.?#].[^\s]*$)/, (msg, match) => { 
+  bot.onText(/\/custom ([^\s$.?#].[^\s]*$)/, (msg, match) => { // Custom web service
     if (msg.chat.id == ownerID ){
       const url = match[1];
       const chatID = msg.chat.id;
