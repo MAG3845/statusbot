@@ -16,7 +16,6 @@ const bot = new TelegramBot(token, {polling: true});
 // Bot Utilities
 const ownerID = process.env.owner_id // MAG Accout
 function kumaStat(){
-  console.log(process.env.url_uptime)
   console.log("PUSH KUMA");
   fetch(process.env.url_uptime);
 }
