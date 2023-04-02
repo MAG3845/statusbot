@@ -13,8 +13,10 @@ dotenv.config();
 // Module ^^
 const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
+const ownerID = process.env.owner_id // Owner account
 // Bot Utilities
-const ownerID = process.env.owner_id // MAG Accout
+
+
 function kumaStat(){
   console.log("PUSH KUMA");
   fetch(process.env.url_uptime);
