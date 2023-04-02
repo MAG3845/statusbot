@@ -76,7 +76,7 @@ bot.onText(/\/bs/, (msg) => { // /bs -> Bot Status |
 
 
 setInterval(function() { // All 1h 
-    httpPingMag
+    httpPingMag();
     console.log("DEBUG : Repeat pass")
   }, 60 * 60 * 1000); 
   
