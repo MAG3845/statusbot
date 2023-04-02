@@ -95,17 +95,24 @@ setInterval(function() { // All 1h
   });
 
   bot.onText(/\/custom ([^\s$.?#].[^\s]*$)/, (msg, match) => { 
-  const url = match[1];
-  const chatID = msg.chat.id;
-  bot.sendMessage(chatID, "Please wait");
-  console.log(url + " /custom was used by " + chatID)
-  httpPingCustom(msg, url);
-
+    if (msg.chat.id == ownerID ){
+      const url = match[1];
+      const chatID = msg.chat.id;
+      bot.sendMessage(chatID, "Please wait");
+      console.log(url + " /custom was used by " + chatID)
+      httpPingCustom(msg, url);
+    }
+      else {
+          bot.sendMessage(msg.chat.id, "You are not allowed to do that ! Please contact the owner to you give permission")
+      }
+  
+  
+  
 });
 
 bot.onText(/\/start/, (msg) => { // /bs -> Bot Status | 
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, `Hey ! Welcome ! \nThis a bot developped by MAG, thanks to him\nThis bot is to show you if a webpage is down or no with his HTTP Error if the website is not available\n \nI'm not professional, so my bot can't be perfect ! Please send me feedback by mail - contact@magcloud.eu\nDev with NodeJS`);
+  bot.sendMessage(chatId, `It's Dev Bot, it's reserved for dev team ! Please go away`);
   console.log("/start was used - ", msg.chat.id);
 });
 
@@ -122,3 +129,12 @@ bot.onText(/\/uptimef/, (msg) => { // DEBUG COMMAND ONLY MAG CAN EXECT
   }
 });
 
+/*  if (msg.chat.id == ownerID ){
+   
+
+}
+  else {
+      bot.sendMessage(msg.chat.id, "You are not allowed to do that ! Please contact the owner to you give permission")
+  }
+
+*/
