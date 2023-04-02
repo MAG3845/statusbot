@@ -16,14 +16,14 @@ const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
 // Bot Utilities
 const ownerID = process.env.owner_id // MAG Accout
-function kumaStat(){
-  console.log("PUSH KUMA");
-  const xhr = new XMLHttpRequest();
-  xhr.open('POST', process.env.url_uptime);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.send('status=up&msg=OK&ping=60');
-}
   
+
+
+function kumaStat(){
+    console.log("PUSH KUMA");
+    fetch(process.env.url_uptime);
+  }
+ 
 function httpPingCustom(msg, link) { // Status Fonction with custom URL
     const urlRegex = new RegExp(/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i); // REGEX for exemple.com
     if (urlRegex.test(link)){
