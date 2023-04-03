@@ -16,11 +16,20 @@ const bot = new TelegramBot(token, {polling: true});
 const ownerID = process.env.owner_id // Owner account
 // Bot Utilities
 
+// Start Uptime
 
+setInterval(function() {
+  kumaStat();
+  }, 60000);
+  
 function kumaStat(){
   console.log("PUSH KUMA");
   fetch(process.env.url_uptime);
 }
+
+// End Uptime
+
+// Function - Ping 
   
 function httpPingCustom(msg, link) { // Status Fonction with custom URL
     const urlRegex = new RegExp(/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i); // REGEX for exemple.com
@@ -74,18 +83,26 @@ function httpPingMag(msg) { // Status MAG Sites
     })
 };
 
+// End Fonction - Ping
+
+
+// Owner Auto Ping
+setInterval(function() { // All 1h 
+  httpPingMag();
+  console.log("DEBUG : Repeat pass")
+}, 60 * 60 * 1000); 
+// End Owner auto ping
+
+
+// Commands
+
+
 bot.onText(/\/bs/, (msg) => { // /bs -> Bot Status | 
     const chatId = msg.chat.id;
     bot.sendMessage(chatId, "Bot is on");
     console.log("Command /bs was used - ", msg.chat.id);
   });
 
-
-setInterval(function() { // All 1h 
-    httpPingMag();
-    console.log("DEBUG : Repeat pass")
-  }, 60 * 60 * 1000); 
-  
 
   bot.onText(/\/force/, (msg) => { // DEBUG COMMAND ONLY MAG CAN EXECT
     if (msg.chat.id == ownerID ){
@@ -111,16 +128,4 @@ bot.onText(/\/start/, (msg) => { // /bs -> Bot Status |
   console.log("/start was used - ", msg.chat.id);
 });
 
-setInterval(function() {
-kumaStat();
-}, 60000);
-
-
-bot.onText(/\/uptimef/, (msg) => { // DEBUG COMMAND ONLY MAG CAN EXECT
-  if (msg.chat.id == ownerID ){
-    kumaStat();  }
-  else {
-      bot.sendMessage(msg.chat.id, "You are not allowed to do that ! Please contact the owner to you give permission")
-  }
-});
 
