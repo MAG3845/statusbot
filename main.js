@@ -36,7 +36,7 @@ function httpPingCustom(msg, link) { // Status Fonction with custom URL
       bot.sendMessage(idChannel, emoji.get('heavy_check_mark') + " : " + link + " is on");}
     })
     .catch(error => {
-      console.log('DEBUT : Custom failed - Check NDD ' + msg.chat.id);
+      console.log('DEBUG : Custom failed - Check NDD : -' + msg.chat.id);
       bot.sendMessage(idChannel, 'Check your url please !');
     })
     }
