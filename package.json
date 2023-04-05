@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "https": "^1.0.0",
-    "node-emoji": "^1.11.0",
-    "node-telegram-bot-api": "^0.61.0",
-    "xmlhttprequest": "^1.8.0"
-  }
-}
