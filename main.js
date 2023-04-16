@@ -24,7 +24,7 @@ setInterval(function() {
   }, 60000);
   
 function kumaStat(){
-  log("Push Kuma", 0)
+  log("Push Kuma ", 0)
   fetch(process.env.url_uptime);
 }
 
