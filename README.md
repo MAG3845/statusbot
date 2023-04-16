@@ -4,15 +4,8 @@
 
 
 
-You can use <a href="https://t.me/mag_stat_bot">@mag_status_bot</a> or Selhost !
+You can use <a href="https://t.me/mag_stat_bot">@mag_status_bot</a> or Selfhost !
 
 
+# Very unstable but sometimes some new feature ! Use it at your own risk !
 
-
-
-
-
-
-
-
-### Please read the LICENSE and if you want fork it please say my name !
