@@ -2,7 +2,7 @@
 node_modules/
 dist/
 build/
-
+.vscode/
 # fichiers
 .env
 .DS_Store
