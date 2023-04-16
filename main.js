@@ -129,3 +129,12 @@ bot.onText(/\/start/, (msg) => { // /bs -> Bot Status |
 });
 
 
+bot.onText(/\/support/, (msg) =>{
+  console.log("/support was used by " + msg.chat.id)
+  bot.sendMessage(msg.chat.id, " Oh ! You need support ?" + emoji.get("question")+ "\nSee this :\n\nGo on "+emoji.get("earth_americas") +" : https://magcloud.eu/index.php/contacts/ ( it's in french only ) \nEmail "+ emoji.get("mailbox") +" : contact@magcloud.eu \nDiscord : MAG#8514 \n\nPlease check before on Github if your issues was not already discover ! Thanks !!")
+});
+
+bot.onText(/\/github/, (msg) =>{
+  console.log("/github was used by " + msg.chat.id)
+  bot.sendMessage(msg.chat.id, "If you want to see the repo on Github 👩‍💻\n\nGo on : https://github.com/MAG3845/statusbot\n\nDon't forgot if you want to fork my project please mention my Name and My Repo it's will be very nice ;)\nIf you found a bug please make a issue on Github or Contact me ( /support ) ❤")
+})
