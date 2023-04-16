@@ -72,35 +72,35 @@ function httpPingCustom(msg, link) { // Status Fonction with custom URL
     
   };
 
-function httpPingMag(msg) { // Status MAG Sites
-    fetch('https://magcloud.eu')  // magcloud.eu
+function httpPingAuto(msg) { // Status MAG Sites
+    fetch('https://exemple.com')  // magcloud.eu
     .then(response => {
       if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : magcloud.eu is off with error " + response.status);
-        log("MAGCLOUD.EU =" + response.status, 0)
+        bot.sendMessage(ownerID, emoji.get('x') + " : exemple.com is off with error " + response.status);
+        log("exemple.com =" + response.status, 0)
       }
-      else {console.log('MAGCLOUD.EU = ', response.status);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : magcloud.eu is on");}
-      log("MAGCLOUD.EU =" + response.status, 0)
+      else {log("EXEMPLE.COM = " + response.status, 0);
+      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : exemple.com is on");}
+      log("EXEMPLE.COM =" + response.status, 0)
     })
-    fetch('https://hub.magcloud.eu')
+    fetch('https://1.exemple.com')
     .then(response => {
       if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : hub.magcloud.eu is off with error " + response.status);
-        log("HUB.MAGCLOUD.EU =" + response.status, 0)
+        bot.sendMessage(ownerID, emoji.get('x') + " : 1.exemple.com is off with error " + response.status);
+        log("1.exemple.com =" + response.status, 0)
       }
-      else {console.log('HUB.MAGCLOUD.EU = ', response.status);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : hub.magcloud.eu is on");}
-      log("HUB.MAGCLOUD.EU =" + response.status, 0)
+      else {log("1.EXEMPLE.COM = " + response.status, 0);
+      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 1.exemple.com is on");}
+      log("1.EXEMPLE.COM =" + response.status, 0)
     })
-    fetch('https://link.magcloud.eu')  // magcloud.eu
+    fetch('https://2.exemple.com')  // magcloud.eu
     .then(response => {
       if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : link.magcloud.eu is off with error " + response.status);
-        log("LINK.MAGCLOUD.EU =" + response.status, 0)
+        bot.sendMessage(ownerID, emoji.get('x') + " : 2.exemple.com is off with error " + response.status);
+        log("2.EXEMPLE.COM =" + response.status, 0)
       }
-      else {log("LINK.MAGCLOUD.EU =" + response.status, 0);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : link.magcloud.eu is on");}
+      else {log("2.EXEMPLE.COM =" + response.status, 0);
+      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 2.EXEMPLE.COM is on");}
     })
 };
 
@@ -109,7 +109,7 @@ function httpPingMag(msg) { // Status MAG Sites
 
 // Owner Auto Ping
 setInterval(function() { // All 1h 
-  httpPingMag();
+  httpPingAuto();
   log("AutoPing" , 0)
 }, 60 * 60 * 1000); 
 // End Owner auto ping
@@ -124,15 +124,6 @@ bot.onText(/\/bs/, (msg) => { // /bs -> Bot Status |
     log("/bs was used by " , msg.chat.id)
   });
 
-
-  bot.onText(/\/force/, (msg) => { // DEBUG COMMAND ONLY MAG CAN EXECT
-    if (msg.chat.id == ownerID ){
-        httpPingMag(msg)}
-    else {
-        bot.sendMessage(msg.chat.id, "You are not allowed to do that ! Please contact the owner to you give permission")
-    }
-    
-  });
 
   bot.onText(/\/custom ([^\s$.?#].[^\s]*$)/, (msg, match) => { 
   const url = match[1];
