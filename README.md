@@ -25,7 +25,7 @@ Feature on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>: 🤖
 ### Based on Node-Telegram-Api and other node package ! 🧰
 
 # Comming Soon 
-- For the <a href="https://t.me/mag_stat_bot">MAG Status Bot an auto MP for your website</a>
+- For the <a href="https://t.me/mag_stat_bot">MAG Status Bot</a> an auto MP for your website
 - Setup for selfhost
 - AutoMail
 - Somethings... ( who will change the bot )
