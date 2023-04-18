@@ -4,15 +4,38 @@
 
 
 
-You can use <a href="https://t.me/mag_stat_bot">@mag_status_bot</a> or Selhost !
+You can use <a href="https://t.me/mag_stat_bot">@mag_status_bot</a> or Selfhost !
+
+# First Public Release ! ✅
+
+You can use it on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a> 
+
+Feature on SelfHost Only : ☁️
+- UptimeKuma Push
+- Send a DM every hours with HTTP Code of your configured website
+- All Feature of  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>
+
+Feature on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>: 🤖
+- See if your site's work
+- Some extra feature will come !
 
 
+## To Self host yourself go on the Github Wiki --> 📖
 
+### Based on Node-Telegram-Api and other node package ! 🧰
 
+# Comming Soon 
+- For the <a href="https://t.me/mag_stat_bot">MAG Status Bot</a> an auto MP for your website
+- Setup for selfhost
+- AutoMail
+- Somethings... ( who will change the bot )
+- Ping feature
+- Export on Discord ?
+- Clean the code !  ( really )
 
+## Need to contact ? : 🗣️
 
-
-
-
+Email : mag@magcloud.eu    
+Discord : MAG#8514
 
 ### Please read the LICENSE and if you want fork it please say my name !
