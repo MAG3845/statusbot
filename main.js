@@ -39,8 +39,6 @@ function log(log, id){
   fs.writeFile(filepath,current_date + log + id + "\n", { flag: 'a+' }, err => {});
 }
 
-
-
 // END
 
 
@@ -77,29 +75,29 @@ function httpPingAuto(msg) { // Status MAG Sites
     .then(response => {
       if (!response.ok) {
         bot.sendMessage(ownerID, emoji.get('x') + " : exemple.com is off with error " + response.status);
-        log("exemple.com =" + response.status, 0)
+        log("exemple.com =" + response.status + " ", 0)
       }
       else {log("EXEMPLE.COM = " + response.status, 0);
       bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : exemple.com is on");}
-      log("EXEMPLE.COM =" + response.status, 0)
+      log("EXEMPLE.COM =" + response.status + " ", 0)
     })
     fetch('https://1.exemple.com')
     .then(response => {
       if (!response.ok) {
         bot.sendMessage(ownerID, emoji.get('x') + " : 1.exemple.com is off with error " + response.status);
-        log("1.exemple.com =" + response.status, 0)
+        log("1.exemple.com =" + response.status + " ", 0)
       }
       else {log("1.EXEMPLE.COM = " + response.status, 0);
       bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 1.exemple.com is on");}
-      log("1.EXEMPLE.COM =" + response.status, 0)
+      log("1.EXEMPLE.COM =" + response.status + "", 0)
     })
     fetch('https://2.exemple.com')  // magcloud.eu
     .then(response => {
       if (!response.ok) {
         bot.sendMessage(ownerID, emoji.get('x') + " : 2.exemple.com is off with error " + response.status);
-        log("2.EXEMPLE.COM =" + response.status, 0)
+        log("2.EXEMPLE.COM =" + response.status + " ", 0)
       }
-      else {log("2.EXEMPLE.COM =" + response.status, 0);
+      else {log("2.EXEMPLE.COM =" + response.status + " ", 0);
       bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 2.EXEMPLE.COM is on");}
     })
 };
