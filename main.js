@@ -15,6 +15,8 @@ dotenv.config();
 const token = process.env.token_telegram;
 const bot = new TelegramBot(token, {polling: true});
 const ownerID = process.env.owner_id // Owner account
+const website = process.env.websites
+const websites_split = website.split(",")
 // Bot Utilities
 
 // Start Uptime
@@ -25,7 +27,10 @@ setInterval(function() {
   
 function kumaStat(){
   log("Push Kuma ", 0)
-  fetch(process.env.url_uptime);
+  fetch(process.env.url_uptime)
+  .catch(error =>{
+    log("Please check your link in .env or ignore if you don't have an UptimeKuma ", 0)
+  })
 }
 
 // End Uptime
@@ -70,43 +75,40 @@ function httpPingCustom(msg, link) { // Status Fonction with custom URL
     
   };
 
-function httpPingAuto(msg) { // Status MAG Sites
-    fetch('https://exemple.com')  // magcloud.eu
-    .then(response => {
-      if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : exemple.com is off with error " + response.status);
-        log("exemple.com =" + response.status + " ", 0)
+function httpPingAuto() { // Status MAG Sites
+  var i = 0
+  var rLength = websites_split.length - 1;
+  var SelectInput = 0
+  do{
+    {
+      fetch(websites_split[SelectInput]) 
+      .then(response => {
+            if (!response.ok) {
+              bot.sendMessage(ownerID, emoji.get('x') + " : " + websites_split[SelectInput] +  " is off with error " + response.status);
+              log(websites_split[SelectInput] + " = " + response.status, 0)
+            }
+            else {console.log(websites_split[SelectInput] + " = ", response.status);
+            bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : "+ websites_split[SelectInput] + " is on");
+            log(websites_split[SelectInput] + " = " + response.status, 0)}
+            SelectInput++
+          })
+        .catch(error =>{
+          bot.sendMessage(idChannel, 'Check your url please ! Go to modify .env');
+          log("AutoPing ERROR - THE NDD IS NOT WORK, Modify your .env", 0)
+        })
+      i++
       }
-      else {log("EXEMPLE.COM = " + response.status, 0);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : exemple.com is on");}
-      log("EXEMPLE.COM =" + response.status + " ", 0)
-    })
-    fetch('https://1.exemple.com')
-    .then(response => {
-      if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : 1.exemple.com is off with error " + response.status);
-        log("1.exemple.com =" + response.status + " ", 0)
-      }
-      else {log("1.EXEMPLE.COM = " + response.status, 0);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 1.exemple.com is on");}
-      log("1.EXEMPLE.COM =" + response.status + "", 0)
-    })
-    fetch('https://2.exemple.com')  // magcloud.eu
-    .then(response => {
-      if (!response.ok) {
-        bot.sendMessage(ownerID, emoji.get('x') + " : 2.exemple.com is off with error " + response.status);
-        log("2.EXEMPLE.COM =" + response.status + " ", 0)
-      }
-      else {log("2.EXEMPLE.COM =" + response.status + " ", 0);
-      bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : 2.EXEMPLE.COM is on");}
-    })
-};
-
+  }while (i !== rLength + 1);
+  SelectInput = 0
+}
+     
+    
 // End Fonction - Ping
 
 
 // Owner Auto Ping
 setInterval(function() { // All 1h 
+  httpPingAuto();
   httpPingAuto();
   log("AutoPing" , 0)
 }, 60 * 60 * 1000); 
@@ -148,3 +150,4 @@ bot.onText(/\/github/, (msg) =>{
   log("/github was used by " , msg.chat.id)
   bot.sendMessage(msg.chat.id, "If you want to see the repo on Github 👩‍💻\n\nGo on : https://github.com/MAG3845/statusbot\n\nDon't forgot if you want to fork my project please mention my Name and My Repo it's will be very nice ;)\nIf you found a bug please make a issue on Github or Contact me ( /support ) ❤")
 })
+

@@ -1,6 +1,6 @@
 # Status bot - Telegram Bot !
 
-<code><img height="20" src="https://img.shields.io/badge/NodeJS-18.15.0-Green" /></code>  <code><img height="20" src="https://img.shields.io/badge/Version-1.0-important" /></code> 
+<code><img height="20" src="https://img.shields.io/badge/NodeJS-18.15.0-Green" /></code>  <code><img height="20" src="https://img.shields.io/badge/Version-1.1-important" /></code> 
 
 
 
