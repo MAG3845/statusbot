@@ -49,32 +49,6 @@ function log(log, id){
 
 // Function - Ping 
   
-function httpPingCustom(msg, link) { // Status Fonction with custom URL
-    const urlRegex = new RegExp(/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i); // REGEX for exemple.com
-    if (urlRegex.test(link)){
-    httplink = 'https://' + link; // to add https://
-    idChannel = msg.chat.id
-    fetch(httplink) 
-    .then(response => {
-      if (!response.ok) {
-        bot.sendMessage(idChannel, emoji.get('x') + " : "+ link + " is off with error " + response.status);
-        log("PingCustom LOG - URL = ERROR OFF " + link + " ", idChannel);
-      }
-      else {log("PingCustom LOG - URL = 200 PASS " + link + " ", idChannel);
-      bot.sendMessage(idChannel, emoji.get('heavy_check_mark') + " : " + link + " is on");}
-    })
-    .catch(error => {
-      bot.sendMessage(idChannel, 'Check your url please !');
-      log("PingCustom ERROR - THE NDD IS NOT WORK", idChannel)
-    })
-    }
-    else{
-      bot.sendMessage(idChannel, "Please enter a correct url with format : exemple.com");
-      log("PingCustom ERROR - URL IS NOT WITH THE GOOD FORMAT", idChannel)
-    };
-    
-  };
-
 function httpPingAuto() { // Status MAG Sites
   var i = 0
   var rLength = websites_split.length - 1;
@@ -108,7 +82,6 @@ function httpPingAuto() { // Status MAG Sites
 
 // Owner Auto Ping
 setInterval(function() { // All 1h 
-  httpPingAuto();
   httpPingAuto();
   log("AutoPing" , 0)
 }, 60 * 60 * 1000); 
