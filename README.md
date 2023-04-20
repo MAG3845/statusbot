@@ -20,7 +20,7 @@ Feature on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>: 🤖
 - Some extra feature will come !
 
 
-## To Self host yourself go on the Github Wiki --> 📖
+## To Self host yourself go on my wiki <a href="https://wiki.magcloud.eu">MAGCloud Wiki</a> --> 📖
 
 ### Based on Node-Telegram-Api and other node package ! 🧰
 
