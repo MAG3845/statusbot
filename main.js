@@ -60,6 +60,7 @@ function httpPingAuto() { // Status MAG Sites
             if (!response.ok) {
               bot.sendMessage(ownerID, emoji.get('x') + " : " + websites_split[SelectInput] +  " is off with error " + response.status);
               log(websites_split[SelectInput] + " = " + response.status, 0)
+              SelectInput++
             }
             else {console.log(websites_split[SelectInput] + " = ", response.status);
             bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : "+ websites_split[SelectInput] + " is on");
