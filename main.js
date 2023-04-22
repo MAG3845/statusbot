@@ -2,7 +2,7 @@
 @https://t.me/mag_stat_bot
 Developped by MAG -->
 https://magcloud.eu
-Discord : mag#9322
+Discord : mag#8514
 Mail : contact@magcloud.eu
 */
 const TelegramBot = require('node-telegram-bot-api');
@@ -70,6 +70,7 @@ function httpPingAuto() { // Status MAG Sites
         .catch(error =>{
           bot.sendMessage(idChannel, 'Check your url please ! Go to modify .env');
           log("AutoPing ERROR - THE NDD IS NOT WORK, Modify your .env", 0)
+          SelectInput++
         })
       i++
       }
