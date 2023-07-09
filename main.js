@@ -48,37 +48,57 @@ function log(log, id){
 
 
 // Function - Ping 
-  
-function httpPingAuto() { // Status MAG Sites
-  var i = 0
-  var rLength = websites_split.length - 1;
-  var SelectInput = 0
-  do{
-    {
-      fetch(websites_split[SelectInput]) 
-      .then(response => {
-            if (!response.ok) {
-              bot.sendMessage(ownerID, emoji.get('x') + " : " + websites_split[SelectInput] +  " is off with error " + response.status);
-              log(websites_split[SelectInput] + " = " + response.status, 0)
-              SelectInput++
-            }
-            else {console.log(websites_split[SelectInput] + " = ", response.status);
-            bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : "+ websites_split[SelectInput] + " is on");
-            log(websites_split[SelectInput] + " = " + response.status, 0)}
-            SelectInput++
-          })
-        .catch(error =>{
-          bot.sendMessage(idChannel, 'Check your url please ! Go to modify .env');
-          log("AutoPing ERROR - THE NDD IS NOT WORK, Modify your .env", 0)
-          SelectInput++
-        })
-      i++
-      }
-  }while (i !== rLength + 1);
-  SelectInput = 0
-}
+
      
-    
+function httpPingCustom(msg, link) { // Status Fonction with custom URL
+  const urlRegex = new RegExp(/^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i); // REGEX for exemple.com
+  if (urlRegex.test(link)){
+  httplink = 'https://' + link; // to add https://
+  idChannel = msg.chat.id
+  fetch(httplink) 
+  .then(response => {
+    if (!response.ok) {
+      bot.sendMessage(idChannel, emoji.get('x') + " : "+ link + " is off with error " + response.status);
+      log("PingCustom LOG - URL = ERROR OFF " + link + " ", idChannel);
+    }
+    else {log("PingCustom LOG - URL = 200 PASS " + link + " ", idChannel);
+    bot.sendMessage(idChannel, emoji.get('heavy_check_mark') + " : " + link + " is on");}
+  })
+  .catch(error => {
+    bot.sendMessage(idChannel, 'Check your url please ! Or the website not working at all maybe a bad configuration on DNS');
+    log("PingCustom ERROR - THE NDD IS NOT WORK ", idChannel)
+  })
+  }
+  else{
+    bot.sendMessage(idChannel, "Please enter a correct url with format : exemple.com");
+    log("PingCustom ERROR - URL IS NOT WITH THE GOOD FORMAT ", idChannel)
+  };
+  
+};
+
+function httpPingAuto() { // Auto Ping your websites
+  var choiceTable = 0
+  const tableLenght = websites_split.length
+  do{ // Loop to verify all websites
+    const websites_ping = websites_split[choiceTable] // For the message bot otherwise the message bot dosen't work proprely 
+      fetch(websites_split[choiceTable])
+      .then(response => {
+        var link = websites_ping
+        if (!response.ok) {
+          bot.sendMessage(ownerID, emoji.get('x') + " : "+ link + " is off with error " + response.status);
+          log("PingCustom LOG - URL = ERROR OFF " + link + " ", ownerID);
+        }
+        else {
+          log("PingCustom LOG - URL = 200 PASS " + link + " ", ownerID);
+          bot.sendMessage(ownerID, emoji.get('heavy_check_mark') + " : " + link + " is on");}
+  })
+      .catch(error => {
+        bot.sendMessage(ownerID, 'Check your url please ! Or the website not working at all maybe a bad configuration on DNS');
+        log("PingCustom ERROR - THE NDD IS NOT WORK ", ownerID)
+  })
+  choiceTable++
+}while(tableLenght !== choiceTable)
+}
 // End Fonction - Ping
 
 
@@ -126,3 +146,8 @@ bot.onText(/\/github/, (msg) =>{
   bot.sendMessage(msg.chat.id, "If you want to see the repo on Github 👩‍💻\n\nGo on : https://github.com/MAG3845/statusbot\n\nDon't forgot if you want to fork my project please mention my Name and My Repo it's will be very nice ;)\nIf you found a bug please make a issue on Github or Contact me ( /support ) ❤")
 })
 
+
+bot.onText(/\/debugautoping/, (msg) =>{
+  log("DEBUG COMMAND AUTO PING " , msg.chat.id)
+  httpPingAuto()
+})
