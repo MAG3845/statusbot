@@ -4,7 +4,6 @@ dist/
 build/
 .vscode/
 # fichiers
-.env
 .DS_Store
 *.log
 npm-debug.log*
