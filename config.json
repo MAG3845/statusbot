@@ -1,9 +1,9 @@
 {
     
-    "token": "6015403719:AAGbJHKR033Ed2YE1wWz2u4GpuOPZslcVTk",
-    "apiKuma": "http://status.magcloud.eu/api/push/NTaRRF86th",
-    "websites": "https://magcloud.eu,https://share.magcloud.eu,https://link.magcloud.eu,https://hessflix.tv",
+    "token": "",
+    "apiKuma": "",
+    "websites": "",
     "logs_file": "log.txt",
-    "ownerID": 2115874946
+    "ownerID": 
 
 }
