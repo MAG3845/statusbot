@@ -145,9 +145,3 @@ bot.onText(/\/github/, (msg) =>{
   log("/github was used by " , msg.chat.id)
   bot.sendMessage(msg.chat.id, "If you want to see the repo on Github 👩‍💻\n\nGo on : https://github.com/MAG3845/statusbot\n\nDon't forgot if you want to fork my project please mention my Name and My Repo it's will be very nice ;)\nIf you found a bug please make a issue on Github or Contact me ( /support ) ❤")
 })
-
-
-bot.onText(/\/debugautoping/, (msg) =>{
-  log("DEBUG COMMAND AUTO PING " , msg.chat.id)
-  httpPingAuto()
-})
