@@ -9,17 +9,17 @@ const TelegramBot = require('node-telegram-bot-api');
 const https = require('https');
 const emoji = require('node-emoji');
 // My Modules for the Bot
-
-const { httpPingAuto, httpPingCustom } = require("./Functions/Ping/ping.js")
-const { logs } = require("./Utils/logs.js")
+const ping = require("./Functions/Ping/ping.js")
 const { kumaStat } = require("./Utils/apiKuma.js")
+const { logs } = require('./Utils/logs.js')
+const { Start } = require("./Load/Start.js")
 // Variable / Config
 const config = require('./config.json')
 const token = config.token;
 const apiKuma = config.apiKuma
-console.log(apiKuma)
 const bot = new TelegramBot(token, {polling: true});
 const ownerID = config.ownerID // Owner account
+Start()
 
 
 
@@ -32,7 +32,7 @@ setInterval(function() {
 // Owner Auto Ping
 setInterval(function() { // All 1h 
   ping.httpPingAuto(bot);
-  logs("AutoPing" , 0)
+  utils.logs("AutoPing" , 0)
 }, 60 * 60 * 1000); 
 // End Owner auto ping
 
@@ -50,7 +50,7 @@ bot.onText(/\/custom ([^\s$.?#].[^\s]*$)/, (msg, match) => {
     const chatID = msg.chat.id;
     bot.sendMessage(chatID, "Please wait");
     logs("/custom was used by " , msg.chat.id)
-    httpPingCustom(msg, url, bot);
+    ping.httpPingCustom(msg, url, bot);
 
 });
 
@@ -71,4 +71,4 @@ bot.onText(/\/github/, (msg) =>{
   bot.sendMessage(msg.chat.id, "If you want to see the repo on Github 👩‍💻\n\nGo on : https://github.com/MAG3845/statusbot\n\nDon't forgot if you want to fork my project please mention my Name and My Repo it's will be very nice ;)\nIf you found a bug please make a issue on Github or Contact me ( /support ) ❤")
 })
 
-export { bot }
+module.exports = {bot}
