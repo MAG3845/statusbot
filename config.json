@@ -1,9 +1,14 @@
 {
     
-    "token": "",
-    "apiKuma": "",
-    "websites": "",
+    "token": "6015403719:AAFZ2wUnCQngFlRlIaPp0bpr7mGhT3nZMgs",
+    "apiKuma": "https://magcloud.eu",
+    "websites": "https://magcloud.eu",
     "logs_file": "log.txt",
-    "ownerID": 
+    "ownerID": 2115874946,
+    "db_name": "statusbot_dev",
+    "db_adresse": "100.76.202.103",
+    "db_user": "mag",
+    "db_password": "ssu7AP56"
+
 
 }
