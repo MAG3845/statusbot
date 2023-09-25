@@ -4,7 +4,9 @@ const emoji = require('node-emoji');
 const { logs } = require('../../Utils/logs.js')
 const website = config.websites
 const websites_split = website.split(",")
-
+const {sendMail} = require("./Functions/Mail/mail.mjs");
+const { send } = require("process");
+const db = require("../../Utils/db.js")
 
 function httpPingAuto(bot) { // Auto Ping your websites
     var choiceTable = 0
@@ -17,6 +19,7 @@ function httpPingAuto(bot) { // Auto Ping your websites
           if (!response.ok) {
             bot.sendMessage(ownerID, emoji.get('x') + " : "+ link + " is off with error " + response.status);
             logs("PingCustom LOG - URL = ERROR OFF " + link + " ", ownerID);
+            
           }
           else {
             logs("PingCustom LOG - URL = 200 PASS " + link + " ", ownerID);

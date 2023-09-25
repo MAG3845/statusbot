@@ -13,14 +13,13 @@ const ping = require("./Functions/Ping/ping.js")
 const { kumaStat } = require("./Utils/apiKuma.js")
 const { logs } = require('./Utils/logs.js')
 const { Start } = require("./Load/Start.js")
+const db = require("./Utils/db.js")
 // Variable / Config
-const config = require('./config.json')
+const config = require('./config.json');
 const token = config.token;
 const apiKuma = config.apiKuma
 const bot = new TelegramBot(token, {polling: true});
-const ownerID = config.ownerID // Owner account
 Start()
-
 
 
 // Start Uptime

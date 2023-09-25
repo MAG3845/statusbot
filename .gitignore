@@ -11,3 +11,5 @@ yarn-debug.log*
 yarn-error.log*
 log.txt
 config.json
+./config.json
+config.json

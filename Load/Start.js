@@ -1,6 +1,6 @@
 const fs = require("fs")
 const config = require('../config.json')
-
+const { checkDB } = require("../Utils/db.js")
 function Start (){
     console.log(`
                     TELEGRAM STATUS BOT
@@ -13,5 +13,6 @@ function Start (){
     
     `)
     fs.writeFileSync(config.logs_file,"The bot start !")
+    checkDB()
 }
 module.exports = { Start }
