@@ -20,7 +20,7 @@ Feature on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>: 🤖
 - Some extra feature will come !
 
 
-## To Self host yourself go on my wiki <a href="https://wiki.magcloud.eu">MAGCloud Wiki</a> --> 📖
+## Wiki Dead RIP 📖
 
 ### Based on Node-Telegram-Api and other node package ! 🧰
 
@@ -36,6 +36,6 @@ Feature on  <a href="https://t.me/mag_stat_bot">@mag_status_bot</a>: 🤖
 ## Need to contact ? : 🗣️
 
 Email : mag@magcloud.eu    
-Discord : MAG#8514
+Discord : .mag.
 
 ### Please read the LICENSE and if you want fork it please say my name !
