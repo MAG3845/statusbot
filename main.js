@@ -2,7 +2,7 @@
 @https://t.me/mag_stat_bot
 Developped by MAG -->
 https://magcloud.eu
-Discord : mag#8514
+Discord : .mag.
 Mail : contact@magcloud.eu
 */
 const TelegramBot = require('node-telegram-bot-api');
